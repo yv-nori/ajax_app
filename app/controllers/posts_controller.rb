@@ -5,13 +5,10 @@ class PostsController < ApplicationController
   # 削除
   # def new
   # end
-  def index
-    @posts = Post.all.order(id: "DESC")
-  end
 
   def create
-    Post.create(content: params[:content], checked: false)
-    render json:{ post: post}
+    post = Post.create(content: params[:content], checked: false)
+    render json:{ post: post }
   end
   
   def checked
